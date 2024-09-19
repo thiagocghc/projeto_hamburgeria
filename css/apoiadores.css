@@ -1,0 +1,69 @@
+    .apoiadores-organizacao {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 3%;
+        align-items: center;
+    }
+    
+    .organizacao {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        margin: auto;
+    }
+    
+    .bloco-img {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .apoiadores-organizacao .bloco-img {
+        display: flex;
+        align-items: center;
+    }
+    
+    .apoiadores-organizacao .img-apoiadores {
+        width: 80px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 10px;
+    }
+    
+    .titulo-apoiadores {
+        color: aliceblue;
+        text-align: center;
+        padding: 3;
+    }
+    
+    .img-organizacao {
+        width: 180px;
+        height: auto;
+        object-fit: contain;
+        margin: 0 10px;
+    }
+    
+    .apoiadores {
+        margin-top: 3%;
+    }
+    
+    .img-fecomercio {
+        width: 250px;
+        margin: 0 10px;
+    }
+    
+    .img-palestrantes {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+    @media only screen and (max-width: 768px) {
+        .img-fecomercio {
+            display: none;
+        }
+    }

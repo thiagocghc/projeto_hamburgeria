@@ -1,0 +1,224 @@
+<?php
+    require_once 'usuarios.php';
+    $usuario = new Usuario();
+?>
+
+    <!DOCTYPE html>
+    <html lang="pt-br">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HUB INNOVATION II</title>
+
+        <link rel="stylesheet" href="../css/menu.css">
+        <link rel="stylesheet" href="../css/inscricao.css">
+        <link rel="stylesheet" href="../css/apoiadores.css">
+    </head>
+
+    <body class=" tela-inscricao ">
+        <header class="header ">
+            <nav class="navbar ">
+                <ul class="nav-menu ">
+                    <li class="nav-item ">
+                        <a href="index.php " class="nav-link ">HOME</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="index.html" class="nav-link ">SOBRE</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="index.html" class="nav-link ">EDIÇÕES</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="index.html" class="nav-link ">PALESTRANTES</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="inscricao.php" class="nav-link ">INSCRIÇÕES</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a href="login.php " class=" nav-link ">LOGIN</a>
+                    </li>
+                </ul>
+                <div class="hamburger ">
+                    <span class="bar "></span>
+                    <span class="bar "></span>
+                    <span class="bar "></span>
+                </div>
+            </nav>
+
+        </header>
+
+        <div class="container-inscricao">
+            <div class="container-box">
+                <div class="dados-palestra">
+                    <div class="img-palestrantes">
+                        <img src="../pages/ftperfil.jpg" alt="" width="300px">
+                    </div>
+                    <h2 class="titulo-palestra" id="titulo ">65 VAGAS</h2>
+                    <h2 class="titulo-palestra">Ciclo de Inovação – Da ideia ao produto Final. Estudo de cases com IA para Saúde, para Segurança e para o Varejo.</h2>
+                    <h2 class="titulo-palestra" id="titulo ">Palestrantre:</h2>
+                    <p class="desc-plaestra">A palestra visa abordar como foi estruturada pela NASA a metodologia do ciclo de inovação em TRL´s (Technology Readiness Levels), e como as universidades, institutos de P&D, Startup´s e empresas em geral se posicionam nessa cadeia
+                        de inovação. Abordará também o estudo de casos de projetos com inteligência artificial para a Saúde, Segurança e Varejo com a utilização de wearables, smartphones, tablets e câmeras.</p>
+                </div>
+            </div>
+            <div class="dadosFormulario">
+                <div class="box">
+                    <form action="" method="POST" class="forms-inscricao">
+                        <fieldset>
+                            <legend><b>Fórmulário de Inscrição</b></legend>
+                            <br>
+                            <div class="inputBox">
+                                <label for="nome" class="labelInput">Nome completo</label>
+                                <input type="text" name="nome" id="nome" class="inputUser" required>
+
+                            </div>
+                            <div class="inputBox">
+                                <label for="email" class="labelInput">Email</label>
+                                <input type="text" name="email" id="email" class="inputUser" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="telefone" class="labelInput">Telefone</label>
+                                <input type="tel" name="telefone" id="telefone" class="inputUser" required>
+                            </div>
+                            <div class="inputBox">
+                                <label for="CPF" class="labelInput">CPF</label>
+                                <input type="text" name="CPF" id="CPF" class="inputUser" required>
+                            </div>
+                            <div class="dados-pessoais">
+                                <p>Sexo:</p>
+                                <div class="sexo">
+                                    <input type="radio" id="feminino" name="genero" value="feminino" required>
+                                    <label for="feminino">Feminino</label>
+                                </div>
+                                <div class="sexo">
+                                    <input type="radio" id="masculino" name="genero" value="masculino" required>
+                                    <label for="masculino">Masculino</label>
+                                </div>
+                                <div class="sexo">
+                                    <input type="radio" id="outro" name="genero" value="outro" required>
+                                    <label for="outro">Outro</label>
+                                </div>
+
+                            </div>
+                            <div class="inputBox">
+                                <label for="data_nascimento">Data de Nascimento:</label><br>
+                                <input type="date" name="data_nascimento" id="data_nascimento" required>
+                            </div>
+
+
+                            <div class="inputBox">
+                                <input type="checkbox" name="lgpd" id="lgpd" required>
+                                <label for="endereco" class="labelcheck">Ao enviar este formulário, você permite que seus dados 
+                                    pessoais sejam processados em nossas plataformas educacionais.</label>
+                            </div>
+                            <div class="inputBox">
+                                <input type="checkbox" name="info" id="lgpd" required>
+                                <label for="endereco" class="labelcheck">Você concorda em receber informações a respeito de cursos 
+                                    relacionados ao Senac.</label>
+                            </div>
+                            <div class="botoes">
+
+                                <input type="submit" id="submit" value="Canelar">
+                                <input type="submit" id="enviar" value="Enviar">
+                            </div>
+                        </fieldset>
+                    </form>
+
+                    <?php
+        if(isset($_POST['nome']))
+        {
+            $nome = addslashes($_POST['nome']);
+            $email = addslashes($_POST['email']);
+            $telefone = addslashes($_POST['telefone']);
+            $cpf = addslashes($_POST['CPF']);
+            $sexo = addslashes($_POST['genero']);
+            $data_nascimento = addslashes($_POST['data_nascimento']);
+            $lgpd = addslashes($_POST['lgpd']);
+            $info = addslashes($_POST['info']);
+
+            //verificar se está tudo preenchido
+            if(!empty($nome) && !empty($telefone) && !empty($email) && !empty($cpf) && !empty($sexo) && !empty($data_nascimento)&& !empty($lgpd)&& !empty($info))
+            {
+                $usuario->conectar("hubinnovation","localhost","root", "");
+                if($usuario->msgErro=="")//está tudo certo, então conectou
+                {
+                   
+                    if($usuario->cadastrar($nome,$cpf,$data_nasc,$sexo, $telefone, $email, $info, $lgpd,$palestra))
+                        {
+                            ?>
+                        <div>
+                            <p>Palestra cadastrada com Sucesso.
+                                <a href="index.php">LOGAR</a>
+                            </p>
+                        </div>
+                        <?php
+                        }else
+                        {
+                            ?>
+                            <div>
+                                <p>Usuário Já Cadastrado em Palestra.
+
+                                </p>
+                            </div>
+                            <?php
+                    }
+                   
+                }
+                else
+                {
+                    ?>
+                                <div>
+                                    <?php echo "Erro: " .$usuario->msgErro;   ?>
+                                </div>
+                                <?php
+                }
+            }
+            else
+            {
+                ?>
+                                    <div>
+                                        <p>Preencha todos os campos.
+
+                                        </p>
+                                    </div>
+                                    <?php
+            }
+
+        }
+    ?>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+
+
+
+        <script>
+            const hamburger = document.querySelector(".hamburger");
+            const navMenu = document.querySelector(".nav-menu");
+
+            hamburger.addEventListener("click", mobileMenu);
+
+            function mobileMenu() {
+                hamburger.classList.toggle("active");
+                navMenu.classList.toggle("active");
+            }
+
+
+
+            const navLink = document.querySelectorAll(".nav-link");
+
+            navLink.forEach(n => n.addEventListener("click", closeMenu));
+
+            function closeMenu() {
+                hamburger.classList.remove("active");
+                navMenu.classList.remove("active");
+            }
+        </script>
+
+    </body>
+
+    </html>
